@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Pup Portal</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #f9f7f7, #e4dcdc);
+      color: #333;
+    }
+    header {
+      background: #1d1d1d;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      border: 2px solid #ddd;
+      padding: 2rem;
+      border-radius: 16px;
+      background: white;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      border-color: gold;
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #a68550;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    input, select, textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .button {
+      background: #a68550;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #8d6f3b;
+    }
+    footer {
+      background: #1d1d1d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Royalty Dog Wash & Co.</h1>
+    <p>Luxury Grooming Tiers & Easy Booking</p>
+  </header>
+
+  <section class="section" id="tiers">
+    <h2>Membership Tiers</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Tier 1 – Basic Wash – $100/mo</h3>
+        <ul>
+          <li>2 washes per month</li>
+          <li>Pickup & drop-off (local)</li>
+          <li>Warm water wash with organic shampoo</li>
+          <li>Blow dry & quick brush</li>
+          <li>Light ear cleaning</li>
+          <li>Scented spritz finish</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Tier 2 – Deluxe Groom – $195/mo</h3>
+        <ul>
+          <li>3 washes per month</li>
+          <li>Everything in Tier 1</li>
+          <li>Fluff finish styling</li>
+          <li>Nail trim & filing</li>
+          <li>Full ear & eye cleaning</li>
+          <li>Paw pad cleaning</li>
+          <li>Choice of fragrance or hypoallergenic finish</li>
+          <li>Seasonal pet photo</li>
+          <li>Flea & tick shampoo treatment as needed</li>
+          <li>Teeth brushing</li>
+          <li>Luxury bow tie or ribbon</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Tier 3 – Royal Treatment – $350/mo</h3>
+        <ul>
+          <li>4 washes per month</li>
+          <li>Everything in Tier 2</li>
+          <li>Full coat wax & shine</li>
+          <li>Premium conditioner soak</li>
+          <li>De-shedding treatment</li>
+          <li>Fresh breath spray</li>
+          <li>Luxury treat & embroidered bandana</li>
+          <li>Priority booking</li>
+          <li>Complimentary birthday gift box</li>
+          <li>Blueberry facial</li>
+          <li>Holiday grooming accessories</li>
+          <li>Relaxation massage</li>
+          <li>Paw health check & balm treatment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book">
+    <h2>Book a Wash</h2>
+    <form id="booking-form">
+      <input name="owner" placeholder="Owner Name" required />
+      <input name="email" type="email" placeholder="Email" />
+      <input name="phone" placeholder="Phone" />
+      <input name="address" placeholder="Address" required />
+      <input name="dogName" placeholder="Dog Name" required />
+      <input name="breed" placeholder="Breed" />
+      <input name="weight" type="number" placeholder="Weight (lbs)" />
+      <input name="coat" placeholder="Coat Type" />
+      <input name="temperament" placeholder="Temperament" />
+      <input name="allergies" placeholder="Allergies" />
+      <textarea name="notes" placeholder="Notes"></textarea>
+      <select name="tier">
+        <option value="Tier 1 – Basic Wash">Tier 1 – Basic Wash</option>
+        <option value="Tier 2 – Deluxe Groom">Tier 2 – Deluxe Groom</option>
+        <option value="Tier 3 – Royal Treatment">Tier 3 – Royal Treatment</option>
+      </select>
+      <input type="date" name="date" />
+      <button type="submit" class="button">Save Booking</button>
+    </form>
+  </section>
+
+  <section class="section" id="bookings">
+    <h2>Stored Bookings (offline demo)</h2>
+    <ul id="booking-list"></ul>
+  </section>
+
+  <section class="section" id="analytics">
+    <h2>Analytics</h2>
+    <p>Total bookings: <span id="total-bookings">0</span></p>
+    <p>Tier breakdown: <span id="tier-counts"></span></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Royalty Dog Wash & Co. | All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
