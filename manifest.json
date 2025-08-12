@@ -1,0 +1,9 @@
+{
+  "name": "Royal Pup Portal",
+  "short_name": "Royal Pup",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#a68550",
+  "icons": []
+}
